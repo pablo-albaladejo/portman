@@ -1,5 +1,5 @@
 {
-  "name": "@apideck/portman",
+  "name": "portman-lambda",
   "version": "1.18.0",
   "description": "Port OpenAPI Spec to Postman Collection, with contract & variation tests included",
   "homepage": "https://apideck.com",
