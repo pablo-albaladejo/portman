@@ -15,7 +15,7 @@ describe('Portman', () => {
   })
 
   it.only('should be runnable', async () => {
-    const outputFile = `./tmp/converted/crmApi.${uuidv4()}.json`
+    const outputFile = `/tmp/converted/crmApi.${uuidv4()}.json`
 
     const portman = new Portman({
       postmanUid: 'eb1ffad6-eece-456b-ad32-3f2a3f605537',

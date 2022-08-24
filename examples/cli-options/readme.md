@@ -91,7 +91,7 @@ Example of a [`newman-options.json` config file](newman-options.json):
 
 ```json
 {
-  "environment": "./tmp/crm/postman-dev.env.json",
+  "environment": "/tmp/crm/postman-dev.env.json",
   "iteration-count": 5,
   "ignore-redirects": true,
   "insecure": true
@@ -103,7 +103,7 @@ Example of a [`newman-options.json` config file](newman-options.json):
 Another option to set the Newman options by passing the options as an object on the CLI.
 
 ```
-portman -u https://specs.apideck.com/crm.yml -c ./tmp/crm/portman-config.json --runNewman --newmanRunOptions '{"environment":"./tmp/crm/postman-dev.env.json","iteration-count": 5}'
+portman -u https://specs.apideck.com/crm.yml -c /tmp/crm/portman-config.json --runNewman --newmanRunOptions '{"environment":"/tmp/crm/postman-dev.env.json","iteration-count": 5}'
 ```
 
 ### Newman options as a CLI options settings
@@ -128,7 +128,7 @@ Example of a [Portman CLI options file](portman-cli-options-newman.json):
   "syncPostman": false,
   "runNewman": true,
   "newmanRunOptions": {
-    "environment": "./tmp/crm/postman-dev.env.json",
+    "environment": "/tmp/crm/postman-dev.env.json",
     "iteration-count": 5,
     "ignore-redirects": true,
     "insecure": true

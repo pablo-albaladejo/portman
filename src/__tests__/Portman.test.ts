@@ -297,7 +297,7 @@ describe('Portman', () => {
   })
 
   describe('Portman.writePortmanCollectionToFile()', () => {
-    const jestCollectionFile = './tmp/jest-collection.json'
+    const jestCollectionFile = '/tmp/jest-collection.json'
 
     it('should be a function', () => {
       const portman = new Portman(options)

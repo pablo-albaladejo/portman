@@ -1,5 +1,5 @@
 {
-  "environment": "./tmp/crm/postman-dev.env.json",
+  "environment": "/tmp/crm/postman-dev.env.json",
   "iteration-count": 5,
   "ignore-redirects": true,
   "insecure": true

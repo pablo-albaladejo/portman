@@ -13,14 +13,14 @@ describe('writeNewmanEnv', () => {
     const collection = getPostmanCollection()
     const postmanJson = collection.toJSON()
 
-    writeNewmanEnv(postmanJson, 'tmp/mock.json')
+    writeNewmanEnv(postmanJson, '/tmp/mock.json')
     expect(fsSpy).toHaveBeenCalled()
   })
 
   it('should not writeToFile if no variables are defined', () => {
     const fsSpy = jest.spyOn(fs, 'outputFileSync')
 
-    writeNewmanEnv({}, 'tmp/mock.json')
+    writeNewmanEnv({}, '/tmp/mock.json')
     expect(fsSpy).not.toHaveBeenCalled()
   })
 })

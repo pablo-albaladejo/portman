@@ -3,8 +3,8 @@ import fs from 'fs-extra'
 
 export const clearTmpDirectory = async (): Promise<Option.Option<string>> => {
   try {
-    await fs.emptyDir(`${__dirname}/../../tmp/working`)
-    await fs.rmdir(`${__dirname}/../../tmp/working`)
+    await fs.emptyDir(`/tmp/working`)
+    await fs.rmdir(`/tmp/working`)
   } catch (error) {
     return Option.some(error.toString())
   }

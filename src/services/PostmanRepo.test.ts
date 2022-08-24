@@ -11,7 +11,7 @@ const collectionsJson = JSON.parse(
   fs.readFileSync('__tests__/fixtures/api_collections.json').toString()
 )
 
-const cacheFile = `${process.cwd()}/tmp/.portman.jest.cache.json`
+const cacheFile = `/tmp/.portman.jest.cache.json`
 const repo = new PostmanRepo(cacheFile, new PostmanApiService())
 
 beforeAll(() => {
@@ -23,7 +23,7 @@ beforeAll(() => {
     .spyOn(PostmanApiService.prototype, 'getCollections')
     .mockResolvedValue(Either.right(collectionsJson.collections))
 
-  fs.ensureDirSync(`${process.cwd()}/tmp`)
+  fs.ensureDirSync(`/tmp`)
 })
 
 afterAll(() => {

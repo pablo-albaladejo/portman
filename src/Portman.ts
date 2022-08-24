@@ -174,9 +174,9 @@ export class Portman {
       )
       console.log(chalk.red(consoleLine))
     }
-    await fs.ensureDir('./tmp/working/')
-    await fs.ensureDir('./tmp/converted/')
-    await fs.ensureDir('./tmp/newman/')
+    await fs.ensureDir('/tmp/working/')
+    await fs.ensureDir('/tmp/converted/')
+    await fs.ensureDir('/tmp/newman/')
 
     const configData = await getConfig(portmanConfigPath)
 
@@ -219,8 +219,8 @@ export class Portman {
     if (oaLocal) {
       try {
         const oaLocalPath = path.resolve(oaLocal)
-        await fs.copyFile(oaLocalPath, './tmp/converted/spec.yml')
-        openApiSpec = './tmp/converted/spec.yml'
+        await fs.copyFile(oaLocalPath, '/tmp/converted/spec.yml')
+        openApiSpec = '/tmp/converted/spec.yml'
       } catch (err) {
         console.error('\x1b[31m', 'Local OAS error - no such file or directory "' + oaLocal + '"')
         process.exit(1)
@@ -247,7 +247,7 @@ export class Portman {
     }
 
     if (filterFile && filterFileExists) {
-      const openApiSpecPath = oaOutput ? oaOutput : './tmp/converted/filtered.yml'
+      const openApiSpecPath = oaOutput ? oaOutput : '/tmp/converted/filtered.yml'
 
       // Create oaOutput file if it doesn't exist
       fs.outputFileSync(openApiSpecPath, '', 'utf8')
@@ -283,7 +283,7 @@ export class Portman {
     const { oas } = this.oasParser
     const oaToPostmanConfig: IOpenApiToPostmanConfig = {
       openApiObj: { ...oas },
-      outputFile: `${process.cwd()}/tmp/working/tmpCollection.json`,
+      outputFile: `/tmp/working/tmpCollection.json`,
       configFile: postmanConfigPath as string
     }
 
@@ -476,7 +476,7 @@ export class Portman {
     const { globals } = this.config
     const fileName = this?.portmanCollection?.info?.name || 'portman-collection'
 
-    let postmanCollectionFile = `./tmp/converted/${camelCase(fileName)}.json`
+    let postmanCollectionFile = `/tmp/converted/${camelCase(fileName)}.json`
     if (output) {
       postmanCollectionFile = output as string
       if (!postmanCollectionFile.includes('.json')) {
@@ -522,7 +522,7 @@ export class Portman {
 
     if (runNewman) {
       const fileName = this?.portmanCollection?.info?.name || 'portman-collection'
-      const newmanEnvFile = `./tmp/newman/${fileName}-env.json`
+      const newmanEnvFile = `/tmp/newman/${fileName}-env.json`
       writeNewmanEnv(this.portmanCollection, newmanEnvFile)
 
       try {

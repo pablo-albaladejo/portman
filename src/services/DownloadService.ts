@@ -10,7 +10,7 @@ export class DownloadService {
         responseType: 'stream'
       })
       const fileName = url.replace(/\/$/, '').split('/').pop()
-      const filePath = `./tmp/${fileName}`
+      const filePath = `/tmp/${fileName}`
 
       return await new Promise((resolve, reject) => {
         const fileStream = createWriteStream(filePath)

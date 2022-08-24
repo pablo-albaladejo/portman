@@ -170,19 +170,19 @@ portman -u https://specs.apideck.com/crm.yml -b http://localhost:3050 -n true
 ###### Path pass to a local data file for Newman to use for iterations
 
 ```
-portman -u https://specs.apideck.com/crm.yml -b http://localhost:3050 -n true -d ./tmp/newman/data/crm.json
+portman -u https://specs.apideck.com/crm.yml -b http://localhost:3050 -n true -d /tmp/newman/data/crm.json
 ```
 
 ###### Pass the path to a local spec (useful when updating your specs) and output Postman collection locally
 
 ```
-portman -l ./tmp/specs/crm.yml -o ./tmp/specs/crm.postman.json
+portman -l /tmp/specs/crm.yml -o /tmp/specs/crm.postman.json
 ```
 
 ###### Skip tests and just generate collection
 
 ```
-portman -l ./tmp/specs/crm.yml -t false
+portman -l /tmp/specs/crm.yml -t false
 ```
 
 ###### Filter OpenAPI and generate collection
@@ -196,7 +196,7 @@ For more details, review the [cli-filtering example](https://github.com/apideck-
 ###### Add extra forms to Json schema validation
 
 ```
-portman -l ./tmp/specs/crm.yml -o ./tmp/specs/crm.postman.json --extraUnknownFormats ulid one two
+portman -l /tmp/specs/crm.yml -o /tmp/specs/crm.postman.json --extraUnknownFormats ulid one two
 ```
 
 This makes the schema validation more lenient, and solves problems with unknown formats
@@ -204,13 +204,13 @@ This makes the schema validation more lenient, and solves problems with unknown 
 ###### Upload newly generated collection to Postman, which will upsert the collection, based on the collection name
 
 ```
-portman -l ./tmp/specs/crm.yml --syncPostman
+portman -l /tmp/specs/crm.yml --syncPostman
 ```
 
 Upload newly generated collection to Postman using the collection UID to overwrite the existing.
 
 ```
-portman -l ./tmp/specs/crm.yml --syncPostman -p 9601963a-53ff-4aaa-92a0-2e70a8a2a748
+portman -l /tmp/specs/crm.yml --syncPostman -p 9601963a-53ff-4aaa-92a0-2e70a8a2a748
 ```
 
 When a collection gets large, the Postman API will compare all the requests when updating the collection. This can take some time even result in 5xx errors.
@@ -219,14 +219,14 @@ To overcome this, you can use the `--postmanFastSync` option. This option will s
 REMARK: Using `--postmanFastSync` will result in a new Postman collection and Postman UID for each sync.
 
 ```
-portman -l ./tmp/specs/crm.yml --syncPostman --postmanFastSync
+portman -l /tmp/specs/crm.yml --syncPostman --postmanFastSync
 ```
 
 Portman caches a set of Postman API data to facilitate faster lookups and uploads, preventing unnecessary connecting to the Postman API.
 In case you need to reset the cache you simply remove the `.portman.cache.json` file or set the `--postmanRefreshCache` option when running the Postman sync.
 
 ```
-portman -l ./tmp/specs/crm.yml --syncPostman --postmanRefreshCache
+portman -l /tmp/specs/crm.yml --syncPostman --postmanRefreshCache
 ```
 
 ###### Pass custom paths for config files
@@ -237,13 +237,13 @@ Portman provides a default openapi-to-postman configuration [postman-config.defa
 Portman configuration file in JSON format:
 
 ```
-portman -u https://specs.apideck.com/crm.yml -c ./tmp/crm/portman-config.json -s ./common/postman-config.json
+portman -u https://specs.apideck.com/crm.yml -c /tmp/crm/portman-config.json -s ./common/postman-config.json
 ```
 
 Portman configuration file in YAML format:
 
 ```
-portman -u https://specs.apideck.com/crm.yml -c ./tmp/crm/portman-config.yaml -s ./common/postman-config.json
+portman -u https://specs.apideck.com/crm.yml -c /tmp/crm/portman-config.yaml -s ./common/postman-config.json
 ```
 
 ###### Pass all CLI options as JSON/YAML file
@@ -273,7 +273,7 @@ For more details, review the [cli-options example](https://github.com/apideck-li
 All [Newman configuration options](https://learning.postman.com/docs/running-collections/using-newman-cli/command-line-integration-with-newman/#options) to run Newman can be passed along through Portman.
 
 ```
-portman -u https://specs.apideck.com/crm.yml -c ./tmp/crm/portman-config.json --runNewman --newmanOptionsFile ./tmp/crm/newman-options.json
+portman -u https://specs.apideck.com/crm.yml -c /tmp/crm/portman-config.json --runNewman --newmanOptionsFile /tmp/crm/newman-options.json
 ```
 
 For more details, review the [cli-options example](https://github.com/apideck-libraries/portman/tree/main/examples/cli-options).
@@ -284,12 +284,12 @@ NOTE: Newman is set to ignore redirects to allow for testing redirect response c
 
 ### Output
 
-Without specifying the output location, your generated Postman Collection is written to `./tmp/converted/${specName}.json` if you are manually importing to Postman or need to inspect for debugging.
+Without specifying the output location, your generated Postman Collection is written to `/tmp/converted/${specName}.json` if you are manually importing to Postman or need to inspect for debugging.
 
 By using `-o` or `--output` parameter, you can define the location where the Postman collection will be written.
 
 ```
-portman -l ./tmp/specs/crm.yml -o ./tmp/specs/crm.Postman.json
+portman -l /tmp/specs/crm.yml -o /tmp/specs/crm.Postman.json
 ```
 
 ## Portman settings

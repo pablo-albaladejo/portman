@@ -46,7 +46,7 @@ export class PostmanSyncService {
     this.postmanUid = postmanUid
     this.postmanWorkspaceName = postmanWorkspaceName
 
-    this.cacheFile = cacheFile || `${process.cwd()}/tmp/.portman.cache.json`
+    this.cacheFile = cacheFile || `/tmp/.portman.cache.json`
     this.postmanRepo = new PostmanRepo(this.cacheFile, this.postmanApi)
 
     this.portmanCollection = portmanCollection

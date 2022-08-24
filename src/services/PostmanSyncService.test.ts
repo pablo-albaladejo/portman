@@ -36,7 +36,7 @@ const unknownWorkspaceCollection = {
   }
 }
 
-const cacheFile = `${process.cwd()}/tmp/.portman.jest.cache.json`
+const cacheFile = `/tmp/.portman.jest.cache.json`
 const successResponse = {
   status: 200,
   data: {
@@ -69,7 +69,7 @@ beforeAll(() => {
     .spyOn(PostmanApiService.prototype, 'getCollections')
     .mockResolvedValue(Either.right(collectionsJson.collections))
 
-  fs.ensureDirSync(`${process.cwd()}/tmp`)
+  fs.ensureDirSync(`/tmp`)
 })
 
 beforeEach(() => {
